@@ -1,0 +1,22 @@
+## Storage Types & Characteristics
+
+### 1: Object vs File vs Block
+- **Object Storage (S3)**  
+    - Data stored with metadata + unique ID.  
+    - Infinite scalability, highly durable.  
+    - Best for backups, media, analytics.
+
+- **File Storage (EFS/FSx)**  
+    - Hierarchical (folders, directories).  
+    - Shared access with NFS/SMB.  
+    - Best for content sharing, web apps.
+
+- **Block Storage (EBS, Instance Store)**  
+    - Raw storage volumes attached to compute.  
+    - Provides the highest IOPS, lowest latency.
+    - Best for databases, transactional systems.
+
+ **Exam Tip**:  
+- Database → **Block**.  
+- Shared file system → **File**.  
+- Backup/analytics → **Object**.

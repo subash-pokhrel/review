@@ -1,0 +1,13 @@
+## Performance & Scalability
+
+### 1: Picking Storage Type by Workload
+- **Database workloads** → EBS (Block).  
+- **Analytics / Big Data** → S3 (Object).  
+- **Shared file access** → EFS (File).  
+- **Archiving** → S3 Glacier.  
+
+### 2: Planning Scalability
+- **Amazon S3**: Virtually infinite scaling.  
+- **EBS**: Scale IOPS & throughput with io2/gp3.  
+- **EFS**: Automatically scales file system size and throughput.  
+- **Lifecycle policies**: Move data from S3 Standard → IA → Glacier for cost optimization.  

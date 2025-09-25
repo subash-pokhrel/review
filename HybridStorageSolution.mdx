@@ -1,0 +1,57 @@
+##  Hybrid Storage Solutions
+
+###  1: When to Use Hybrid Storage 
+Hybrid storage is the combination of  **on-premises storage** with **AWS cloud**.  
+AWS expects you to know **real-world use cases** where hybrid is necessary:
+
+1. **Low-Latency Requirements**
+    - Some applications (financial trading systems, real-time manufacturing apps) cannot tolerate internet latency.
+    - Keeping hot data on-premises ensures speed, while AWS is used for backup and archives.
+2. **Compliance & Data Residency**
+    - Regulations (e.g., healthcare HIPAA, government data rules) require sensitive data to remain on-premises.
+    - AWS can still be used for secondary copies, backup, or analytics.
+3. **Phased Cloud Migration**
+    - Companies rarely migrate everything to AWS at once.
+    - Hybrid enables **gradual migration** while minimizing disruption.
+4. **Backup & Disaster Recovery (DR)**
+    - AWS provides durable and cost-effective backup without building a second data center,
+    - Example: Use **S3 Glacier** for archival storage.
+
+5. **Edge / Remote Offices**
+    - Branch offices keep local copies of data for quick access.
+    - Sync with AWS for central analytics or consolidation.
+
+---
+
+### 2: AWS DataSync
+- **Definition**: A managed service to **transfer large datasets (TB–PB scale)** between on-premises and AWS.
+- **Performance**: Up to **10 Gbps per agent**.
+- **Automation**: Handles **encryption, error handling, retry logic, validation** automatically.
+- **Supported sources/targets**: NFS, SMB, object storage → S3, EFS, FSx.
+
+**Use Cases:**
+- Data **migration** to AWS (one-time large transfer).
+- Periodic **synchronization** between on-premises and cloud.
+- **Backup and DR** automation.
+
+---
+
+### 3: AWS Storage Gateway
+- **Definition**: Connects **on-premises environments** with AWS storage.
+- Makes AWS storage appear as **local storage** to applications.
+
+**Types of Storage Gateway:**
+1. **File Gateway**
+    - Uses **NFS/SMB protocols**.
+    - Stores files in **Amazon S3** as objects.
+    - Use case: Backup, archiving, and content repositories.
+
+2. **Volume Gateway** 
+    - Presents **block storage volumes** via iSCSI.
+    - Data stored in **S3**, with snapshots in **EBS**.
+   - Use case: Databases, virtual machine storage.
+
+3. **Tape Gateway**
+    - Replaces physical tapes with **virtual tapes**.
+    - Stored in **S3/Glacier** for durability and archiving.
+    - Use case: Long-term data retention, compliance.
